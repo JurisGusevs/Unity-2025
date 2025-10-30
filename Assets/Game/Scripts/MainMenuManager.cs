@@ -3,6 +3,9 @@ using UnityEngine.SceneManagement;
 
 public class MainMenuManager : MonoBehaviour
 {
+
+    public GameObject gameObj;
+
     public void StartLevelOne()
     {
         SceneManager.LoadScene(0);
