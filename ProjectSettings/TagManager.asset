@@ -3,7 +3,8 @@
 --- !u!78 &1
 TagManager:
   serializedVersion: 3
-  tags: []
+  tags:
+  - Trap
   layers:
   - Default
   - TransparentFX
@@ -11,7 +12,7 @@ TagManager:
   - 
   - Water
   - UI
-  - 
+  - Path
   - 
   - 
   - 
@@ -49,6 +50,9 @@ TagManager:
     locked: 0
   - name: Path
     uniqueID: 1873004367
+    locked: 0
+  - name: Player
+    uniqueID: 2071556207
     locked: 0
   - name: Foreground
     uniqueID: 2175270423
