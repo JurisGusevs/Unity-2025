@@ -58,6 +58,7 @@ public class AnimationController : MonoBehaviour
     public void OnPlayerDeath()
     {
         GameManager.Instance.LooseLife(true);
+        GameManager.Instance.EnableGameOverScreen();
         Destroy(gameObject);
     }
 }

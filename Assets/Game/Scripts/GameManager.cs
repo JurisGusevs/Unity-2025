@@ -1,9 +1,12 @@
 using TMPro;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
     [SerializeField] private TMP_Text text;
+    [SerializeField] private GameObject gameOverScreen;
+    [SerializeField] private Timer timer;
 
     public int lifeCount = 3;
 
@@ -28,6 +31,27 @@ public class GameManager : MonoBehaviour
                 lifeCount--;
             }
             text.text = "Lifes: " + lifeCount;
+            if (lifeCount <= 0)
+            {
+                GameObject player = GameObject.FindGameObjectWithTag("Player");
+                player.GetComponent<PlayerMovement>().isPlayerDead = true;
+            }
         }
+    }
+
+    public void EnableGameOverScreen()
+    {
+        timer.isActive = false;
+        gameOverScreen.SetActive(true);
+    }
+
+    public void ReloadScene()
+    {
+        SceneManager.LoadScene(gameObject.scene.name);
+    }
+
+    public void QuitApplication()
+    {
+        Application.Quit();
     }
 }
