@@ -26,13 +26,14 @@ public class PlayerMovement : MonoBehaviour
         rb = GetComponent<Rigidbody2D>();
     }
 
+    // Even though it is fixed update Time.deltaTime should be taken into account. So in your game please show me how you used this time delta time
     private void FixedUpdate()
     {
         if (!isPlayerDead)
         {
             float axis = playerInput.Player.HorizontalMovement.ReadValue<float>();
 
-            rb.linearVelocity = new Vector2(axis * movementSpeed, rb.linearVelocity.y);
+            rb.linearVelocity = new Vector2(axis * movementSpeed * Time.deltaTime, rb.linearVelocity.y);
 
             //rb.linearVelocityX = axis * movementSpeed; // Another way to read input value for one axis like X
         } else

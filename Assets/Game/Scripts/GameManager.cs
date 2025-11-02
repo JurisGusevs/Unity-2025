@@ -5,8 +5,11 @@ using UnityEngine.SceneManagement;
 public class GameManager : MonoBehaviour
 {
     [SerializeField] private TMP_Text text;
+    [SerializeField] private TMP_Text scoreText;
     [SerializeField] private GameObject gameOverScreen;
     [SerializeField] private Timer timer;
+
+    private int score = 0;
 
     public int lifeCount = 3;
 
@@ -37,6 +40,12 @@ public class GameManager : MonoBehaviour
                 player.GetComponent<PlayerMovement>().isPlayerDead = true;
             }
         }
+    }
+
+    public void IncreaseScore(int value = 1)
+    {
+        score += value;
+        scoreText.text = "Score: " + score;
     }
 
     public void EnableGameOverScreen()
